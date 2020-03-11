@@ -26,10 +26,10 @@ class PositionsMerge(val before: List<Position>, val after: Position) : Parcelab
         @JvmField
         val CREATOR: Parcelable.Creator<PositionsMerge> = object : Parcelable.Creator<PositionsMerge> {
             override fun createFromParcel(parcel: Parcel): PositionsMerge {
-                val before = ArrayList<Position>()
+                val before: List<Position> = ArrayList()
                 parcel.readList(before, Position::class.java.classLoader)
                 val after = parcel.readParcelable<Position>(Position::class.java.classLoader)
-                return PositionsMerge(before, after)
+                return PositionsMerge(before, after!!)
             }
 
             override fun newArray(size: Int): Array<PositionsMerge?> {

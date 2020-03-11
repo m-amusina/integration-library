@@ -50,7 +50,7 @@ data class MedicineAttribute(
         fun fromBundle(bundle: Bundle?): MedicineAttribute? {
             return bundle?.let {
                 MedicineAttribute(
-                        it.getString(KEY_SUBJECT_ID)
+                        it.getString(KEY_SUBJECT_ID)!!
                 )
             }
         }

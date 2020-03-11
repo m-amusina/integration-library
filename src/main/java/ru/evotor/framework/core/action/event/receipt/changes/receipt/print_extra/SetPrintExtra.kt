@@ -29,8 +29,8 @@ class SetPrintExtra(
         fun from(bundle: Bundle?): SetPrintExtra? {
             bundle ?: return null
 
-            val printPlace = PrintExtraPlaceMapper.fromBundle(bundle.getBundle(KEY_PRINT_PLACE))
-            val printables = PrintablesMapper.fromBundle(bundle.getBundle(KEY_PRINTABLES))
+            val printPlace = bundle.getBundle(KEY_PRINT_PLACE)?.let { PrintExtraPlaceMapper.fromBundle(it) }
+            val printables = bundle.getBundle(KEY_PRINTABLES)?.let { PrintablesMapper.fromBundle(it) }
 
             if (printPlace == null || printables == null) {
                 return null

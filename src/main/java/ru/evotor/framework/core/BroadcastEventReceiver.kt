@@ -8,8 +8,10 @@ import android.os.Bundle
 abstract class BroadcastEventReceiver : BroadcastReceiver() {
 
     final override fun onReceive(context: Context, intent: Intent) {
-        if (intent.action != null && intent.extras != null) {
-            onEvent(context, intent.action, intent.extras)
+        intent.action?.let { action ->
+            intent.extras?.let { extras ->
+                onEvent(context, action, extras)
+            }
         }
     }
 

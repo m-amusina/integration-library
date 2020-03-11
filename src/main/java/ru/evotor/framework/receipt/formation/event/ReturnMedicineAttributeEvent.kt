@@ -27,7 +27,7 @@ class ReturnMedicineAttributeEvent(
             ReturnMedicineAttributeEvent(
                     receiptUuid = it.getString(KEY_RECEIPT_UUID)
                             ?: return null,
-                    printGroups = it.getParcelableArrayList(KEY_PRINT_GROUPS))
+                    printGroups = it.getParcelableArrayList(KEY_PRINT_GROUPS)!!)
         }
 
     }

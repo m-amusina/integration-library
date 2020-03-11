@@ -84,8 +84,8 @@ abstract class PrintReceiptCommand(
 
         internal fun getPrintReceipts(bundle: Bundle): List<Receipt.PrintReceipt> {
             return bundle.getParcelableArrayList<Bundle>(KEY_PRINT_RECEIPTS)
-                    .map { PrintReceiptMapper.from(it) }
-                    .filterNotNull()
+                    ?.map { PrintReceiptMapper.from(it) }
+                    ?.filterNotNull() ?: emptyList()
         }
 
         internal fun getSetExtra(bundle: Bundle): SetExtra? {

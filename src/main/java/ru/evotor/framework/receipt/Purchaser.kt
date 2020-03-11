@@ -29,8 +29,8 @@ data class Purchaser(
     }
 
     private constructor(parcel: Parcel) : this(
-            parcel.readString(),
-            parcel.readString(),
+            parcel.readString()!!,
+            parcel.readString()!!,
             if (parcel.readInt() == 0) null else PurchaserType.values()[parcel.readInt() % PurchaserType.values().size])
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -58,7 +58,7 @@ data class Purchaser(
 
         fun fromBundle(bundle: Bundle?): Purchaser? {
             return bundle?.let {
-                Purchaser(it.getString(KEY_NAME), it.getString(KEY_DOCUMENT_NUMBER),
+                Purchaser(it.getString(KEY_NAME)!!, it.getString(KEY_DOCUMENT_NUMBER)!!,
                         it.getInt(KEY_TYPE).let {
                             if (it == -1) {
                                 null

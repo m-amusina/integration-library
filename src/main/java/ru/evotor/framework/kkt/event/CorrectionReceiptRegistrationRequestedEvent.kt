@@ -40,16 +40,16 @@ class CorrectionReceiptRegistrationRequestedEvent internal constructor(
 
         fun from(bundle: Bundle?): CorrectionReceiptRegistrationRequestedEvent? = bundle?.let {
             CorrectionReceiptRegistrationRequestedEvent(
-                    SettlementType.valueOf(it.getString(KEY_SETTLEMENT_TYPE)),
-                    TaxationSystem.valueOf(it.getString(KEY_TAXATION_SYSTEM)),
+                    SettlementType.valueOf(it.getString(KEY_SETTLEMENT_TYPE)!!),
+                    TaxationSystem.valueOf(it.getString(KEY_TAXATION_SYSTEM)!!),
                     getCorrectionType(it),
-                    it.getString(KEY_BASIS_FOR_CORRECTION),
-                    it.getString(KEY_PRESCRIPTION_NUMBER),
+                    it.getString(KEY_BASIS_FOR_CORRECTION)!!,
+                    it.getString(KEY_PRESCRIPTION_NUMBER)!!,
                     Date(it.getLong(KEY_CORRECTABLE_SETTLEMENT_DATE)),
                     BigDecimal(it.getString(KEY_AMOUNT_PAID)),
-                    PaymentType.valueOf(it.getString(KEY_PAYMENT_TYPE)),
-                    VatRate.valueOf(it.getString(KEY_VAT_RATE)),
-                    it.getString(KEY_CORRECTION_DESCRIPTION),
+                    PaymentType.valueOf(it.getString(KEY_PAYMENT_TYPE)!!),
+                    VatRate.valueOf(it.getString(KEY_VAT_RATE)!!),
+                    it.getString(KEY_CORRECTION_DESCRIPTION)!!,
                     it.getString(KEY_PAYMENT_ADDRESS),
                     it.getString(KEY_PAYMENT_PLACE)
             )
@@ -61,7 +61,7 @@ class CorrectionReceiptRegistrationRequestedEvent internal constructor(
             return if (ordinal != incorrectOrdinal) {
                 CorrectionType.values()[ordinal]
             } else {
-                CorrectionType.valueOf(bundle.getString(KEY_CORRECTION_TYPE))
+                CorrectionType.valueOf(bundle.getString(KEY_CORRECTION_TYPE)!!)
             }
         }
     }

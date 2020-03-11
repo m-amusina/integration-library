@@ -58,7 +58,7 @@ object PrintablesMapper {
     fun fromBundle(bundle: Bundle): Array<IPrintable>? =
             arrayListOf<IPrintable>().let {
                 list ->
-                val bundleParcelables: Array<Parcelable> = bundle.getParcelableArray(KEY_PRINTABLE_ARRAY)
+                val bundleParcelables: Array<Parcelable> = bundle.getParcelableArray(KEY_PRINTABLE_ARRAY) ?: emptyArray()
                 bundleParcelables.forEach {
                     bundle ->
                     if (bundle is Bundle) {
@@ -78,7 +78,7 @@ object PrintablesMapper {
                         safeValueOf<PrintableBarcode.BarcodeType>(bundle.getString(KEY_PRINTABL_BARCODE_TYPE), PrintableBarcode.BarcodeType.CODE39)
                 )
                 PrintableType.IMAGE ->
-                    bundle.getByteArray(KEY_PRINTABL_IMAGE).let {
+                    bundle.getByteArray(KEY_PRINTABL_IMAGE)?.let {
                         PrintableImage(
                                 BitmapFactory.decodeByteArray(it, 0, it.size)
                         )

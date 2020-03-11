@@ -56,9 +56,9 @@ data class AttributeWithValues(
             val version = parcel.readInt()
             val dataSize = parcel.readInt()
             val dataStartPosition = parcel.dataPosition()
-            val uuid = parcel.readString()
-            val name = parcel.readString()
-            val attributeValues = parcel.createTypedArrayList(AttributeValue.CREATOR)
+            val uuid = parcel.readString()!!
+            val name = parcel.readString()!!
+            val attributeValues = parcel.createTypedArrayList(AttributeValue.CREATOR)!!
             parcel.setDataPosition(dataStartPosition + dataSize)
             return AttributeWithValues(uuid, name, attributeValues)
         }

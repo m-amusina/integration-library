@@ -34,7 +34,7 @@ class PaymentSystemPaymentOkResult(
             val slip = bundle.getStringArrayList(KEY_SLIP)
             val paymentInfo = bundle.getString(KEY_PAYMENT_INFO, null)
             val paymentType = Utils.safeValueOf(PaymentType::class.java, bundle.getString(KEY_PAYMENT_TYPE), PaymentType.UNKNOWN)
-            return PaymentSystemPaymentOkResult(rrn, slip, paymentInfo, paymentType)
+            return PaymentSystemPaymentOkResult(rrn, slip!!, paymentInfo, paymentType)
 
         }
     }

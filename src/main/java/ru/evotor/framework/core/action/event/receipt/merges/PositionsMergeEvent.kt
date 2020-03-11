@@ -52,7 +52,7 @@ class PositionsMergeEvent(val receiptUuid: String, val merges: ArrayList<Positio
             return bundle?.let {
                 val receiptUuid = bundle.getString("receiptUuid", "")
                 val merges = bundle.getParcelableArrayList<PositionsMerge>(KEY_MERGES)
-                PositionsMergeEvent(receiptUuid, merges)
+                PositionsMergeEvent(receiptUuid, merges!!)
             }
         }
     }
