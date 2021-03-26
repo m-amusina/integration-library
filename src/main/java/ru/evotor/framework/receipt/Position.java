@@ -1059,12 +1059,11 @@ public class Position implements Parcelable {
         ) {
             position.productType = ProductType.JEWEL;
             setAlcoParams(
+                    mark,
                     null,
                     null,
-                    null,
-                    null
+                    BigDecimal.ONE
             );
-            setJewelParams(mark);
             return this;
         }
 
@@ -1131,10 +1130,6 @@ public class Position implements Parcelable {
         }
 
         private void setTobaccoProductsParams(String mark)  {
-            position.mark = mark;
-        }
-
-        private void setJewelParams(String mark)  {
             position.mark = mark;
         }
 
