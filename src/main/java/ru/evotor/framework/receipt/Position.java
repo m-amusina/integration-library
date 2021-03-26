@@ -1054,6 +1054,20 @@ public class Position implements Parcelable {
             return this;
         }
 
+        public Builder toJewel(
+                @NonNull String mark
+        ) {
+            position.productType = ProductType.JEWEL;
+            setAlcoParams(
+                    null,
+                    null,
+                    null,
+                    null
+            );
+            setJewelParams(mark);
+            return this;
+        }
+
         public Builder toNormal() {
             position.productType = ProductType.NORMAL;
             setAlcoParams(
@@ -1117,6 +1131,10 @@ public class Position implements Parcelable {
         }
 
         private void setTobaccoProductsParams(String mark)  {
+            position.mark = mark;
+        }
+
+        private void setJewelParams(String mark)  {
             position.mark = mark;
         }
 
