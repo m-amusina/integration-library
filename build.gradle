@@ -6,7 +6,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'org.jetbrains.dokka-android'
 
 android {
-    def version = 15
+    def version = 100 // special for jewel product type support
 
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
