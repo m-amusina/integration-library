@@ -192,4 +192,9 @@ object FiscalTags {
      */
     const val MEASURE_CODE = 2108
 
+    /**
+     * телефон или электронный адрес покупателя
+     */
+    const val PURCHASER_PHONE_OR_EMAIL = 1008
+
 }

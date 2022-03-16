@@ -1,6 +1,8 @@
 package ru.evotor.framework.receipt
 
 import ru.evotor.framework.calculator.MoneyCalculator
+import ru.evotor.framework.kkt.FiscalRequisite
+import ru.evotor.framework.kkt.FiscalTags
 import java.math.BigDecimal
 import java.util.*
 
@@ -75,11 +77,13 @@ data class Receipt
             /**
              * Email для отправки чека по почте
              */
+            @FiscalRequisite(FiscalTags.PURCHASER_PHONE_OR_EMAIL)
             var clientEmail: String?,
 
             /**
-             * Phone для отправки чека по смс
+             * Номер телефона для отправки чека по смс
              */
+            @FiscalRequisite(FiscalTags.PURCHASER_PHONE_OR_EMAIL)
             var clientPhone: String?,
 
             /**
